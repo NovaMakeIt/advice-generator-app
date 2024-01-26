@@ -23,6 +23,9 @@ h1 {
 p {
     font-size: 28px;
     color: hsl(193, 38%, 86%);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .advice-card {
@@ -35,4 +38,24 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.pattern-divider {
+    position: absolute;
+    margin-top: 250px;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 100%;
+    background-color: hsl(150, 100%, 66%);
+    cursor: pointer;
+    margin-top: 303px;
+    position: absolute;
+}
+
+button:hover {
+    background-color: hsl(150, 100%, 66%);
 }
