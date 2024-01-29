@@ -12,6 +12,8 @@ body {
     align-items: center;
     justify-content: center;
     background-color: hsl(218, 23%, 16%);
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 h1 {
@@ -25,19 +27,26 @@ p {
     color: hsl(193, 38%, 86%);
     text-align: center;
     padding-top: 30px;
-    padding-bottom: 50px;
+    
 }
 
 .advice-card {
     width: 540px;
     height: 332px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: hsl(217, 19%, 24%);
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.advice-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;    
 }
 
 .pattern-divider {
@@ -58,4 +67,18 @@ button {
 
 button:hover {
     background-color: hsl(150, 100%, 66%);
+}
+
+@media screen and (max-width: 560px) {
+    .advice-card {
+        height: 400px;
+    }
+
+    button {
+        margin-top: 372px;
+    }
+
+    .pattern-divider {
+        margin-top: 335px;
+    }
 }

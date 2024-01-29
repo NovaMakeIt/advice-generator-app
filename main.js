@@ -1,24 +1,30 @@
-const button2 = document.getElementById("button")
-const adviceCard = document.querySelector(".advice-card");
-let advice;
+const button = document.getElementById('button')
+const screenSize = window.matchMedia("(max-width: 560px)")
+let pattern;
 
 async function showAdvice() {
     const reponse = await fetch("https://api.adviceslip.com/advice");
-    advice = await reponse.json();
+    const advice = await reponse.json();
 
     const adviceId = advice.slip.id;
     const adviceText = advice.slip.advice;
+
+    if (screenSize.matches) {
+            pattern = "mobile";
+        } else {
+            pattern = "desktop";
+        }
+
+    const adviceCard = document.querySelector(`#advice-content`);
 
     const HTMLString = `
         <h1>A D V I C E #${adviceId}</h1>
 
         <div class="p-advice">
-        <p>"${adviceText}"</p>
+            <p>"${adviceText}"</p>
         </div>
 
-        <img class="pattern-divider" src="./images/pattern-divider-desktop.svg">
-
-        <button id="button"><img src="./images/icon-dice.svg"></button>
+        <img class="pattern-divider" src="./images/pattern-divider-${pattern}.svg">
     `;
 
     adviceCard.innerHTML = HTMLString;
@@ -26,11 +32,9 @@ async function showAdvice() {
     console.log(advice);
     console.log(adviceId);
     console.log(adviceText);
+    console.log(pattern);
 }
 
-showAdvice()
+button.addEventListener('click', showAdvice);
 
-button2.addEventListener("click", () => {
-    showAdvice()
-});
-
+showAdvice();
